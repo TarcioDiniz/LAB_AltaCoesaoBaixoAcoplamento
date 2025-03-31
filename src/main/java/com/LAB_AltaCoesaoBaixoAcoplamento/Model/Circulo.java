@@ -18,28 +18,20 @@ public class Circulo implements FiguraGeometrica {
 
     @Override
     public BigDecimal calcularArea() {
-        try {
-            BigDecimal raioBigDecimal = new BigDecimal(raio);
-            return PI.multiply(raioBigDecimal).multiply(raioBigDecimal).setScale(2, RoundingMode.HALF_UP);
-        } catch (Exception e) {
-            System.err.println("Erro ao calcular a área do círculo: " + e.getMessage());
-            return BigDecimal.ZERO;
-        }
+        BigDecimal raioBigDecimal = new BigDecimal(raio);
+        return PI.multiply(raioBigDecimal).multiply(raioBigDecimal).setScale(2, RoundingMode.HALF_UP);
     }
 
     @Override
     public BigDecimal calcularPerimetro() {
-        try {
-            BigDecimal raioBigDecimal = new BigDecimal(raio);
-            return PI.multiply(new BigDecimal(2)).multiply(raioBigDecimal).setScale(2, RoundingMode.HALF_UP);
-        } catch (Exception e) {
-            System.err.println("Erro ao calcular o perímetro do círculo: " + e.getMessage());
-            return BigDecimal.ZERO;
-        }
+        BigDecimal raioBigDecimal = new BigDecimal(raio);
+        return PI.multiply(new BigDecimal(2)).multiply(raioBigDecimal).setScale(2, RoundingMode.HALF_UP);
     }
 
     @Override
     public String toString() {
-        return "Círculo: raio = " + raio;
+        return "Círculo: raio = " + raio +
+                ", área = " + calcularArea().toString() +
+                ", perímetro = " + calcularPerimetro().toString();
     }
 }

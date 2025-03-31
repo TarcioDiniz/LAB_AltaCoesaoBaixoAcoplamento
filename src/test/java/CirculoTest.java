@@ -13,14 +13,14 @@ public class CirculoTest {
     @Test
     public void testCalcularArea() {
         FiguraGeometrica circulo = new Circulo(5);
-        BigDecimal resultadoEsperado = new BigDecimal("3.14").multiply(new BigDecimal("5")).multiply(new BigDecimal("5")).setScale(2, RoundingMode.HALF_UP);
+        BigDecimal resultadoEsperado = new BigDecimal(Math.PI).multiply(new BigDecimal("5")).multiply(new BigDecimal("5")).setScale(2, RoundingMode.HALF_UP);
         assertEquals(resultadoEsperado, circulo.calcularArea());
     }
 
     @Test
     public void testCalcularPerimetro() {
         FiguraGeometrica circulo = new Circulo(5);
-        BigDecimal resultadoEsperado = new BigDecimal("3.14").multiply(new BigDecimal("2")).multiply(new BigDecimal("5")).setScale(2, RoundingMode.HALF_UP);
+        BigDecimal resultadoEsperado = new BigDecimal(Math.PI).multiply(new BigDecimal("2")).multiply(new BigDecimal("5")).setScale(2, RoundingMode.HALF_UP);
         assertEquals(resultadoEsperado, circulo.calcularPerimetro());
     }
 

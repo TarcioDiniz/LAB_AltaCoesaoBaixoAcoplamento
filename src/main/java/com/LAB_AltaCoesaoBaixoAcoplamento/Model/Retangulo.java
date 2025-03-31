@@ -5,7 +5,6 @@ import com.LAB_AltaCoesaoBaixoAcoplamento.Interfaces.FiguraGeometrica;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-
 public class Retangulo implements FiguraGeometrica {
     private final int altura;
     private final int largura;
@@ -20,30 +19,20 @@ public class Retangulo implements FiguraGeometrica {
 
     @Override
     public BigDecimal calcularArea() {
-        try {
-            BigDecimal alturaBigDecimal = new BigDecimal(altura);
-            BigDecimal larguraBigDecimal = new BigDecimal(largura);
-            return alturaBigDecimal.multiply(larguraBigDecimal).setScale(2, RoundingMode.HALF_UP);
-        } catch (Exception e) {
-            System.err.println("Erro ao calcular a área do retângulo: " + e.getMessage());
-            return BigDecimal.ZERO;
-        }
+        BigDecimal alturaBigDecimal = new BigDecimal(altura);
+        BigDecimal larguraBigDecimal = new BigDecimal(largura);
+        return alturaBigDecimal.multiply(larguraBigDecimal).setScale(2, RoundingMode.HALF_UP);
     }
 
     @Override
     public BigDecimal calcularPerimetro() {
-        try {
-            BigDecimal alturaBigDecimal = new BigDecimal(altura);
-            BigDecimal larguraBigDecimal = new BigDecimal(largura);
-            return alturaBigDecimal.add(larguraBigDecimal).multiply(new BigDecimal(2)).setScale(2, RoundingMode.HALF_UP);
-        } catch (Exception e) {
-            System.err.println("Erro ao calcular o perímetro do retângulo: " + e.getMessage());
-            return BigDecimal.ZERO;
-        }
+        BigDecimal alturaBigDecimal = new BigDecimal(altura);
+        BigDecimal larguraBigDecimal = new BigDecimal(largura);
+        return alturaBigDecimal.add(larguraBigDecimal).multiply(new BigDecimal(2)).setScale(2, RoundingMode.HALF_UP);
     }
 
     @Override
     public String toString() {
-        return "Retângulo: altura = " + altura + ", largura = " + largura;
+        return "Retângulo: altura = " + altura + ", largura = " + largura + ", área = " + calcularArea().toString() + ", perímetro = " + calcularPerimetro().toString();
     }
 }
